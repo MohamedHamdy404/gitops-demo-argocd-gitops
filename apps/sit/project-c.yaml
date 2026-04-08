@@ -18,5 +18,5 @@ spec:
   sources:
   - repoURL: https://github.com/MohamedHamdy404/gitops-demo-project-c.git
     path: postgresql
-    targetRevision: 12.12.10
+    targetRevision: main
     helm:
