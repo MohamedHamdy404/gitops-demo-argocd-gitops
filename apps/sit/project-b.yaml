@@ -12,8 +12,8 @@ metadata:
 spec:
   project: demo-platform
   sources:
-  - repoURL: https://charts.bitnami.com/bitnami
-    chart: redis
+  - repoURL: https://github.com/MohamedHamdy404/gitops-demo-project-b.git
+    path: redis
     targetRevision: 18.1.6
     helm:
       valueFiles:

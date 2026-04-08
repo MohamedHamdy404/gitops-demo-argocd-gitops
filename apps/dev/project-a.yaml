@@ -6,8 +6,8 @@ metadata:
 spec:
   project: demo-platform
   sources:
-  - repoURL: https://charts.bitnami.com/bitnami
-    chart: nginx
+  - repoURL: https://github.com/MohamedHamdy404/gitops-demo-project-a.git
+    path: nginx
     targetRevision: 15.4.4
     helm:
       valueFiles:

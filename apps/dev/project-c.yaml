@@ -6,8 +6,8 @@ metadata:
 spec:
   project: demo-platform
   sources:
-  - repoURL: https://charts.bitnami.com/bitnami
-    chart: postgresql
+  - repoURL: https://github.com/MohamedHamdy404/gitops-demo-project-c.git
+    path: postgresql
     targetRevision: 12.12.10
     helm:
       valueFiles:
