@@ -6,15 +6,21 @@ metadata:
 spec:
   project: demo-platform
   sources:
-  - repoURL: https://github.com/MohamedHamdy404/gitops-demo-project-a.git
-    path: nginx
-    targetRevision: main
-    helm:
-      valueFiles:
-      - $values/values/project-a/sit-values.yaml
-  - repoURL: https://github.com/MohamedHamdy404/gitops-demo-argocd-gitops.git
-    targetRevision: HEAD
-    ref: values
+    - repoURL: https://github.com/MohamedHamdy404/gitops-demo-project-a.git
+      path: nginx
+      targetRevision: main
+      helm:
+        valueFiles:
+          - $values/values/project-a/sit-values.yaml
+    - repoURL: https://github.com/MohamedHamdy404/gitops-demo-argocd-gitops.git
+      targetRevision: main
+      ref: values
   destination:
     server: https://kubernetes.default.svc
     namespace: sit-project-a
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
