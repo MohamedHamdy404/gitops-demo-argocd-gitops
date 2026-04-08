@@ -1,7 +1,16 @@
+auth:
+  username: demo
+  password: demo123
+  database: demo
+
 primary:
   persistence:
     enabled: false
+
 readReplicas:
   replicaCount: 0
   persistence:
     enabled: false
+
+metrics:
+  enabled: false
