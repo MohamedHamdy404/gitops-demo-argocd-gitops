@@ -31,4 +31,4 @@ replica:
     enabled: true
     size: 1Gi
 sentinel:
-  enabled: true
+  enabled: false
