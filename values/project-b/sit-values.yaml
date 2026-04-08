@@ -1,3 +1,5 @@
+image:
+  repository: bitnamilegacy/redis
 master:
   persistence:
     enabled: true
