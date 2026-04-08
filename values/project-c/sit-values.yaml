@@ -1,9 +1,17 @@
+auth:
+  username: demo
+  password: demo123
+  database: demo
+
 primary:
   persistence:
     enabled: true
     size: 2Gi
+
 readReplicas:
-  replicaCount: 1
+  replicaCount: 0
   persistence:
-    enabled: true
-    size: 2Gi
+    enabled: false
+
+metrics:
+  enabled: false
