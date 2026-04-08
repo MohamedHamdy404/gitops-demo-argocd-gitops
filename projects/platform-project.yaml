@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: demo-platform
+  namespace: argocd
+spec:
+  description: GitOps Demo Platform Project
+  sourceRepos:
+  - '*'
+  destinations:
+  - namespace: dev-project-a
+    server: https://kubernetes.default.svc
+  - namespace: sit-project-a
+    server: https://kubernetes.default.svc
+  - namespace: prod-project-a
+    server: https://kubernetes.default.svc
+  - namespace: dev-project-b
+    server: https://kubernetes.default.svc
+  - namespace: sit-project-b
+    server: https://kubernetes.default.svc
+  - namespace: prod-project-b
+    server: https://kubernetes.default.svc
+  - namespace: dev-project-c
+    server: https://kubernetes.default.svc
+  - namespace: sit-project-c
+    server: https://kubernetes.default.svc
+  - namespace: prod-project-c
+    server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'

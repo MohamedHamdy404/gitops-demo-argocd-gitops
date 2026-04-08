@@ -1,0 +1,7 @@
+primary:
+  persistence:
+    enabled: false
+readReplicas:
+  replicaCount: 0
+  persistence:
+    enabled: false

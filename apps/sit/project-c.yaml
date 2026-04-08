@@ -1,0 +1,22 @@
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: sit-project-b
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sit-project-c
+  namespace: argocd
+spec:
+  project: demo-platform
+  sources:
+  - repoURL: https://charts.bitnami.com/bitnami
+    chart: postgresql
+    targetRevision: 12.12.10
+    helm:

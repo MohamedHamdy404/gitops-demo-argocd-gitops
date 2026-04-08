@@ -1,0 +1,11 @@
+primary:
+  persistence:
+    enabled: true
+    size: 5Gi
+readReplicas:
+  replicaCount: 2
+  persistence:
+    enabled: true
+    size: 5Gi
+metrics:
+  enabled: true

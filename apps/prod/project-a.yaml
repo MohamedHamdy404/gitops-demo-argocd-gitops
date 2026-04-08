@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prod-project-a
+  namespace: argocd
+spec:
+  project: demo-platform
+  sources:
+  - repoURL: https://charts.bitnami.com/bitnami
+    chart: nginx
+    targetRevision: 15.4.4
+    helm:
+      valueFiles:
+      - $values/values/project-a/prod-values.yaml
+  - repoURL: https://github.com/MohamedHamdy404/gitops-demo-argocd-gitops.git
+    targetRevision: HEAD
+    ref: values
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: prod-project-a
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true

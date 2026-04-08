@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prod-project-b
+  namespace: argocd
+spec:
+  project: demo-platform
+  sources:
+  - repoURL: https://charts.bitnami.com/bitnami
+    chart: redis
+    targetRevision: 18.1.6
+    helm:
+      valueFiles:
+      - $values/values/project-b/prod-values.yaml
+  - repoURL: https://github.com/MohamedHamdy404/gitops-demo-argocd-gitops.git
+    targetRevision: HEAD
+    ref: values
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: prod-project-b
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true

@@ -1,0 +1,22 @@
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sit-project-b
+  namespace: argocd
+spec:
+  project: demo-platform
+  sources:
+  - repoURL: https://charts.bitnami.com/bitnami
+    chart: redis
+    targetRevision: 18.1.6
+    helm:
+      valueFiles:
+      - $values/values/project-b/sit-values.yaml
+  - repoURL: https://github.com/MohamedHamdy404/gitops-demo-argocd-gitops.git
+    targetRevision: HEAD
