@@ -14,7 +14,7 @@ spec:
   sources:
   - repoURL: https://github.com/MohamedHamdy404/gitops-demo-project-b.git
     path: redis
-    targetRevision: 18.1.6
+    targetRevision: main
     helm:
       valueFiles:
       - $values/values/project-b/sit-values.yaml
